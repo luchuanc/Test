@@ -1,0 +1,72 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+.txtBox{
+	margin: 10px;
+}
+.form_tit{
+	font-size: 40px;
+	padding: 10px 0;
+	text-align: center;
+	margin-bottom:10px; 	
+}
+.inputBox .ty_input{
+	display: inline-block;
+	width: 120px;
+	height:30px;
+	border:1px solid #ddd;
+	position: relative;
+}
+.cpnt-innertip{
+	position: absolute;
+	z-index: 1;
+	padding: 10px;
+	background-color:red;
+	color: #fff;
+	width: 100px;
+
+}
+.inputBox .title{
+	margin-bottom:10px; 
+}
+.inputBox .ty_input>input{
+	display: block;
+	width: 100%;
+	height:100%;
+	border: 0;
+}
+.inputBox .button{
+	margin-top:10px; 
+}
+.button .ty_button{
+	display: inline-block;
+}
+.button .ty_button>input{
+	height:25px;
+	line-height: 25px;
+	padding:0 5px;
+}
+.log{
+	margin: 10px 0;
+}
+
+.selectBox{
+	margin-top:50px; 
+	margin-bottom:50px;
+}
+.selectBox .box{
+	margin-top:10px; 
+	margin-bottom:10px; 
+}
+.selectBox .cm_form_select{
+	display: inline-block;
+}
+.selectBox .cm_form_select select{
+	width: 100px;
+	height:28px;
+}
+
+.groupBox{
+	
+}
