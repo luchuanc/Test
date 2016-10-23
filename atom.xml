@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://lucc.ml/"/>
-  <updated>2016-10-23T14:41:08.065Z</updated>
+  <updated>2016-10-23T15:00:52.151Z</updated>
   <id>http://lucc.ml/</id>
   
   <author>
@@ -20,58 +20,19 @@
     <link href="http://lucc.ml/2016/10/23/%E6%8D%A2%E7%94%B5%E8%84%91%E5%90%8E%E7%9A%84%E8%BF%81%E7%A7%BB%E9%83%A8%E7%BD%B2/"/>
     <id>http://lucc.ml/2016/10/23/换电脑后的迁移部署/</id>
     <published>2016-10-23T14:40:59.000Z</published>
-    <updated>2016-10-23T14:41:08.065Z</updated>
+    <updated>2016-10-23T15:00:52.151Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
-<p>最近开始研究hexo,记录下安装到运行之中遇到的坑。</p>
+<p>最近将家里的电脑也装了环境，所以将博客也装起来，便于发布</p>
 </blockquote>
-<h2 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h2><p>使用nodejs命令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo</div></pre></td></tr></table></figure>
-<a id="more"></a>
-<p>安装好后，发现什么命令都运行不了。</p>
-<p>解决办法：<br>运行npm install hexo-deployer-git –save</p>
-<h2 id="配置hexo主题"><a href="#配置hexo主题" class="headerlink" title="配置hexo主题"></a>配置hexo主题</h2><p>说到配置，花了我一下午的时间配置，最终的效果就是目前的这个博客。进入正题，分主配置和主题文件配置</p>
-<h3 id="主配置文件-config-yml"><a href="#主配置文件-config-yml" class="headerlink" title="主配置文件_config.yml"></a>主配置文件_config.yml</h3><blockquote>
-<p>设置博客的主要信息</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"># Site</div><div class="line">title: lucc&apos;s notes</div><div class="line">subtitle: 路曼曼其修远兮，吾将上下而求索</div><div class="line">description: 探索前端的各种坑</div><div class="line">keywords: &quot;jovey,Nodejs,react,redux,coffeescript,前端,js,jquery,javascript,html5,开发者,程序猿,极客,编程,代码,开源,IT网站,Developer,Programmer,Coder,html,css,css3,用户体验,Hexo,next...&quot;</div><div class="line">author: 陆钏钏</div><div class="line">language: zh-Hans</div><div class="line">timezone:</div></pre></td></tr></table></figure>
-<blockquote>
-<p>设置RSS订阅</p>
-</blockquote>
-<p>需要先安转<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install --save hexo-generator-feed</div></pre></td></tr></table></figure></p>
-<p>然后设置配置文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">plugins: hexo-generate-feed</div><div class="line">## Themes: https://hexo.io/themes/</div><div class="line">theme: hexo</div></pre></td></tr></table></figure></p>
-<p>还需要在主题配置文件里添加<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rss: /atom.xml</div></pre></td></tr></table></figure></p>
-<blockquote>
-<p>设置git</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">deploy: </div><div class="line">  type: git</div><div class="line">  repository: https://github.com/luchuanc/Test.git</div><div class="line">  branch: gh-pages</div></pre></td></tr></table></figure>
-<h3 id="主题配置文件，这里用到的是next主题"><a href="#主题配置文件，这里用到的是next主题" class="headerlink" title="主题配置文件，这里用到的是next主题"></a>主题配置文件，这里用到的是next主题</h3><p>安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone https://github.com/iissnan/hexo-theme-next themes/next</div></pre></td></tr></table></figure></p>
-<p>配置</p>
-<blockquote>
-<p>菜单配置</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">menu:</div><div class="line"> home: /</div><div class="line"> categories: /categories</div><div class="line"> #about: /about</div><div class="line"> archives: /archives</div><div class="line"> tags: /tags</div><div class="line"> #commonweal: /404.html</div></pre></td></tr></table></figure>
-<blockquote>
-<p>这里用到分类注意需要创建对应的目录，使用</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo new page &quot;categories&quot;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>手动去source文件夹新建文件夹也行  不过要自行配置index.md文件，该文件配置如下</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">title: 分类</div><div class="line">date: 2015-09-16 15:23:03</div><div class="line">type: &quot;categories&quot;</div><div class="line">comments: false</div></pre></td></tr></table></figure>
-<blockquote>
-<p>下面是主题的一些个性化配置</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">avatar: http://img.woyaogexing.com/2016/07/28/9d2d4a154c0692f3!200x200.jpg #设置头像</div><div class="line"># Swiftype Search API Key</div><div class="line">swiftype_key:  #搜索</div><div class="line"></div><div class="line"># Baidu Analytics ID</div><div class="line">baidu_analytics:  #百度统计id</div><div class="line"></div><div class="line"># Duoshuo ShortName</div><div class="line">duoshuo_shortname:  #多说评论</div></pre></td></tr></table></figure>
 ]]></content>
     
     <summary type="html">
     
       &lt;blockquote&gt;
-&lt;p&gt;最近开始研究hexo,记录下安装到运行之中遇到的坑。&lt;/p&gt;
+&lt;p&gt;最近将家里的电脑也装了环境，所以将博客也装起来，便于发布&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h2 id=&quot;安装hexo&quot;&gt;&lt;a href=&quot;#安装hexo&quot; class=&quot;headerlink&quot; title=&quot;安装hexo&quot;&gt;&lt;/a&gt;安装hexo&lt;/h2&gt;&lt;p&gt;使用nodejs命令&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;npm install hexo&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
     
     </summary>
     
