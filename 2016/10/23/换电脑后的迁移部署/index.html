@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="git,hexo," />
 
 
 
@@ -86,15 +86,25 @@
 
 
 
-<meta name="description" content="探索前端的各种坑">
-<meta property="og:type" content="website">
-<meta property="og:title" content="lucc's notes">
-<meta property="og:url" content="http://lucc.ml/index.html">
+<meta name="description" content="最近开始研究hexo,记录下安装到运行之中遇到的坑。
+
+安装hexo使用nodejs命令
+1npm install hexo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="换电脑后的迁移部署">
+<meta property="og:url" content="http://lucc.ml/2016/10/23/换电脑后的迁移部署/index.html">
 <meta property="og:site_name" content="lucc's notes">
-<meta property="og:description" content="探索前端的各种坑">
+<meta property="og:description" content="最近开始研究hexo,记录下安装到运行之中遇到的坑。
+
+安装hexo使用nodejs命令
+1npm install hexo">
+<meta property="og:updated_time" content="2016-10-23T14:41:08.065Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="lucc's notes">
-<meta name="twitter:description" content="探索前端的各种坑">
+<meta name="twitter:title" content="换电脑后的迁移部署">
+<meta name="twitter:description" content="最近开始研究hexo,记录下安装到运行之中遇到的坑。
+
+安装hexo使用nodejs命令
+1npm install hexo">
 
 
 
@@ -115,9 +125,9 @@
 
 
 
-  <link rel="canonical" href="http://lucc.ml/"/>
+  <link rel="canonical" href="http://lucc.ml/2016/10/23/换电脑后的迁移部署/"/>
 
-  <title> lucc's notes </title>
+  <title> 换电脑后的迁移部署 | lucc's notes </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -148,9 +158,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -267,9 +275,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
   
@@ -289,10 +297,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2016/10/23/换电脑后的迁移部署/" itemprop="url">
-                  换电脑后的迁移部署
-                </a>
+                换电脑后的迁移部署
               
             
           </h1>
@@ -358,297 +363,103 @@
       
 
       
-        
-          <blockquote>
+        <blockquote>
 <p>最近开始研究hexo,记录下安装到运行之中遇到的坑。</p>
 </blockquote>
 <h2 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h2><p>使用nodejs命令</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo</div></pre></td></tr></table></figure>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/10/23/换电脑后的迁移部署/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+<a id="more"></a>
+<p>安装好后，发现什么命令都运行不了。</p>
+<p>解决办法：<br>运行npm install hexo-deployer-git –save</p>
+<h2 id="配置hexo主题"><a href="#配置hexo主题" class="headerlink" title="配置hexo主题"></a>配置hexo主题</h2><p>说到配置，花了我一下午的时间配置，最终的效果就是目前的这个博客。进入正题，分主配置和主题文件配置</p>
+<h3 id="主配置文件-config-yml"><a href="#主配置文件-config-yml" class="headerlink" title="主配置文件_config.yml"></a>主配置文件_config.yml</h3><blockquote>
+<p>设置博客的主要信息</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"># Site</div><div class="line">title: lucc&apos;s notes</div><div class="line">subtitle: 路曼曼其修远兮，吾将上下而求索</div><div class="line">description: 探索前端的各种坑</div><div class="line">keywords: &quot;jovey,Nodejs,react,redux,coffeescript,前端,js,jquery,javascript,html5,开发者,程序猿,极客,编程,代码,开源,IT网站,Developer,Programmer,Coder,html,css,css3,用户体验,Hexo,next...&quot;</div><div class="line">author: 陆钏钏</div><div class="line">language: zh-Hans</div><div class="line">timezone:</div></pre></td></tr></table></figure>
+<blockquote>
+<p>设置RSS订阅</p>
+</blockquote>
+<p>需要先安转<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install --save hexo-generator-feed</div></pre></td></tr></table></figure></p>
+<p>然后设置配置文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">plugins: hexo-generate-feed</div><div class="line">## Themes: https://hexo.io/themes/</div><div class="line">theme: hexo</div></pre></td></tr></table></figure></p>
+<p>还需要在主题配置文件里添加<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rss: /atom.xml</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>设置git</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">deploy: </div><div class="line">  type: git</div><div class="line">  repository: https://github.com/luchuanc/Test.git</div><div class="line">  branch: gh-pages</div></pre></td></tr></table></figure>
+<h3 id="主题配置文件，这里用到的是next主题"><a href="#主题配置文件，这里用到的是next主题" class="headerlink" title="主题配置文件，这里用到的是next主题"></a>主题配置文件，这里用到的是next主题</h3><p>安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone https://github.com/iissnan/hexo-theme-next themes/next</div></pre></td></tr></table></figure></p>
+<p>配置</p>
+<blockquote>
+<p>菜单配置</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">menu:</div><div class="line"> home: /</div><div class="line"> categories: /categories</div><div class="line"> #about: /about</div><div class="line"> archives: /archives</div><div class="line"> tags: /tags</div><div class="line"> #commonweal: /404.html</div></pre></td></tr></table></figure>
+<blockquote>
+<p>这里用到分类注意需要创建对应的目录，使用</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo new page &quot;categories&quot;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>手动去source文件夹新建文件夹也行  不过要自行配置index.md文件，该文件配置如下</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">title: 分类</div><div class="line">date: 2015-09-16 15:23:03</div><div class="line">type: &quot;categories&quot;</div><div class="line">comments: false</div></pre></td></tr></table></figure>
+<blockquote>
+<p>下面是主题的一些个性化配置</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">avatar: http://img.woyaogexing.com/2016/07/28/9d2d4a154c0692f3!200x200.jpg #设置头像</div><div class="line"># Swiftype Search API Key</div><div class="line">swiftype_key:  #搜索</div><div class="line"></div><div class="line"># Baidu Analytics ID</div><div class="line">baidu_analytics:  #百度统计id</div><div class="line"></div><div class="line"># Duoshuo ShortName</div><div class="line">duoshuo_shortname:  #多说评论</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
         
+
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
       
     </div>
 
     <footer class="post-footer">
       
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/29/js对象法数组去重/" itemprop="url">
-                  js对象法数组去重
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-29T10:33:47+08:00" content="2016-08-29">
-              2016-08-29
-            </time>
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/js/" itemprop="url" rel="index">
-                    <span itemprop="name">js</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
+            <a href="/tags/git/" rel="tag">#git</a>
           
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/08/29/js对象法数组去重/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/29/js对象法数组去重/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
+            <a href="/tags/hexo/" rel="tag">#hexo</a>
           
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <blockquote>
-<p>前两天在人家的底层代码中发现一个好用的数组去重方法，简单记录下。</p>
-</blockquote>
-<h3 id="一般去重方式"><a href="#一般去重方式" class="headerlink" title="一般去重方式"></a>一般去重方式</h3><p>利用一个临时数组保存，然后循环原数组，如果当前数组的第i已经保存进了临时数组，那么跳过，代码如下：</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/29/js对象法数组去重/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/29/js对象法数组去重/" rel="next" title="js对象法数组去重">
+                <i class="fa fa-chevron-left"></i> js对象法数组去重
+              </a>
+            
           </div>
-        
-      
-    </div>
 
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
+          <div class="post-nav-prev post-nav-item">
             
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/08/安装hexo中遇到的坑/" itemprop="url">
-                  安装hexo中遇到的坑
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-08T16:13:59+08:00" content="2016-08-08">
-              2016-08-08
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Git/" itemprop="url" rel="index">
-                    <span itemprop="name">Git</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/08/08/安装hexo中遇到的坑/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/08/安装hexo中遇到的坑/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
+          </div>
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <blockquote>
-<p>最近开始研究hexo,记录下安装到运行之中遇到的坑。</p>
-</blockquote>
-<h2 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h2><p>使用nodejs命令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo</div></pre></td></tr></table></figure>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/08/安装hexo中遇到的坑/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -656,6 +467,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/10/23/换电脑后的迁移部署/"
+           data-title="换电脑后的迁移部署" data-url="http://lucc.ml/2016/10/23/换电脑后的迁移部署/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -675,8 +494,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://img.woyaogexing.com/2016/07/28/9d2d4a154c0692f3!200x200.jpg"
@@ -753,6 +581,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装hexo"><span class="nav-text">安装hexo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置hexo主题"><span class="nav-text">配置hexo主题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#主配置文件-config-yml"><span class="nav-text">主配置文件_config.yml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#主题配置文件，这里用到的是next主题"><span class="nav-text">主题配置文件，这里用到的是next主题</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -856,6 +695,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
