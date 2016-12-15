@@ -3,32 +3,12 @@
 	function bind(element, type, callback) {
 	    element.addEventListener(type, callback, false);
 	}
-	function preventDefaultTest(el, exceptions) {
-        for (var i in exceptions) {
-            if (exceptions[i].test(el[i])) {
-                return true;
-            }
-        }
-        return false;
-    }
-    if(!Array.prototype.every) {
-       Array.prototype.every = function (callback, thisArg) {
-            for (var i = 0; i < this.length; i++) {
-               if(!callback.call(thisArg,this[i],i,this.toString())){
-
-                   return false; //检测到不符合条件的元素,跳出循环，并返回false
-               }
-            }
-            return true; //所有元素都符合条件，返回true
-        }
-    }
 
 	function moveImg(options){
 		this.startIndex=options.startIndex || 0;
 		this.numbs=options.numbs || 4;
 		this.src=options.src || [];
 		this.el = typeof options.el === "string" ? document.querySelector(options.el) : options.el;//装拼图的盒子
-		this.preventDefaultException = {tagName: /^(INPUT|TEXTAREA|BUTTON|SELECT)$/};
 		this.imgbox=typeof options.imgbox === "string" ? document.querySelector(options.imgbox) : options.imgbox;//装图片的盒子
 		this.max=options.max || 500;//默认最大500的宽度
 		this.pass=options.pass || function(){};
@@ -175,7 +155,6 @@
 		},
 		_start:function(evt){
 
-			this.startTime = new Date().getTime();
 			this._startX=evt.touches[0].pageX;
 			this._startY=evt.touches[0].pageY;
 
@@ -190,6 +169,7 @@
 			console.log("evt%o",evt);
 			console.dir(this.tochEvent);
 
+			evt.preventDefault();
 			
 
 		},
@@ -245,9 +225,7 @@
 			//判断是否完成
 			this.checkSuccess();
 
-			if (!preventDefaultTest(evt.target, this.preventDefaultException)) {
-			    evt.preventDefault();
-			}
+			evt.preventDefault();
 		},
 		getDistance:function(obj1,obj2){
 			var a=(obj1.offsetLeft+obj1.offsetWidth/2)-(obj2.offsetLeft+obj2.offsetWidth/2);
