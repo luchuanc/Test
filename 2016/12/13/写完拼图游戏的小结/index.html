@@ -88,27 +88,21 @@
 
 <meta name="description" content="以前一直想写些自己感兴趣的东西玩，一直没动笔，还记得去年也做过小游戏方面的工作，当时基本上都是在网上找现成的改改就OK了，还记得以前想找个移动端的拼图找了好久都没找到，懊悔不已，最近研究了下，写个玩玩。
 
-demo地址体验
-PC端的尝试
-解决拖拽问题网上搜了下解决方案：思路一：鼠标在页面上移动时不断获取鼠标位置，并将鼠标的位置信息赋值给随鼠标移动的标签，对标签进行定位；这样鼠标就能进行拖动标签了">
+demo地址体验源码地址">
 <meta property="og:type" content="article">
 <meta property="og:title" content="写完拼图游戏的小结">
 <meta property="og:url" content="http://lucc.ml/2016/12/13/写完拼图游戏的小结/index.html">
 <meta property="og:site_name" content="lucc's notes">
 <meta property="og:description" content="以前一直想写些自己感兴趣的东西玩，一直没动笔，还记得去年也做过小游戏方面的工作，当时基本上都是在网上找现成的改改就OK了，还记得以前想找个移动端的拼图找了好久都没找到，懊悔不已，最近研究了下，写个玩玩。
 
-demo地址体验
-PC端的尝试
-解决拖拽问题网上搜了下解决方案：思路一：鼠标在页面上移动时不断获取鼠标位置，并将鼠标的位置信息赋值给随鼠标移动的标签，对标签进行定位；这样鼠标就能进行拖动标签了">
+demo地址体验源码地址">
 <meta property="og:image" content="http://lucc.ml/demos/move/images/cc.png">
-<meta property="og:updated_time" content="2016-12-15T14:11:10.303Z">
+<meta property="og:updated_time" content="2016-12-15T14:30:26.846Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="写完拼图游戏的小结">
 <meta name="twitter:description" content="以前一直想写些自己感兴趣的东西玩，一直没动笔，还记得去年也做过小游戏方面的工作，当时基本上都是在网上找现成的改改就OK了，还记得以前想找个移动端的拼图找了好久都没找到，懊悔不已，最近研究了下，写个玩玩。
 
-demo地址体验
-PC端的尝试
-解决拖拽问题网上搜了下解决方案：思路一：鼠标在页面上移动时不断获取鼠标位置，并将鼠标的位置信息赋值给随鼠标移动的标签，对标签进行定位；这样鼠标就能进行拖动标签了">
+demo地址体验源码地址">
 <meta name="twitter:image" content="http://lucc.ml/demos/move/images/cc.png">
 
 
@@ -371,11 +365,10 @@ PC端的尝试
         <blockquote>
 <p>以前一直想写些自己感兴趣的东西玩，一直没动笔，还记得去年也做过小游戏方面的工作，当时基本上都是在网上找现成的改改就OK了，还记得以前想找个移动端的拼图找了好久都没找到，懊悔不已，最近研究了下，写个玩玩。</p>
 </blockquote>
-<p><a href="http://lucc.ml/demos/move/move.html">demo地址体验</a></p>
+<p><a href="http://lucc.ml/demos/move/move.html">demo地址体验</a><br><a href="https://github.com/luchuanc/puzzle" target="_blank" rel="external">源码地址</a><br><a id="more"></a></p>
 <h3 id="PC端的尝试"><a href="#PC端的尝试" class="headerlink" title="PC端的尝试"></a>PC端的尝试</h3><ul>
 <li>解决拖拽问题<br>网上搜了下解决方案：<br><strong>思路一</strong>：鼠标在页面上移动时不断获取鼠标位置，并将鼠标的位置信息赋值给随鼠标移动的标签，对标签进行定位；这样鼠标就能进行拖动标签了。<br><strong>思路二</strong>：HTML5新属性，可拖放属性draggable，支持draggable属性的浏览器有IE10+，Firfox4+，Safari5+，Chrome，另外为了让Firfox支持可拖放属性，还必须添加一个ondragstart事件处理程序，并在dataTransfer对象中保存一些信息。</li>
 </ul>
-<a id="more"></a>
 <ul>
 <li><p>解决图片切割问题<br>  图片切割本来想就用背景图搞个定位完事，后来想想，还是为难下自己，用过几次canvas，感觉还不错，所以这次用用canvas，具体用到了drawImage这个方法，方法后文贴出</p>
 </li>
