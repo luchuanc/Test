@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>JS</title>
+    <meta name="keywords" content="拼图游戏"/>
+    <meta name="description" content="拼图游戏"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding:0;
+        }
+        html,body{
+            margin: 0;
+            padding:0;
+        }
+        #table{
+            height:auto;
+        }
+        #table_ul{
+            position: relative;
+            list-style: none;
+            height:auto;
+            margin: 0 auto;
+        }
+        #table_ul li img{
+            border:0;
+        }
+        #table_ul li.trans{
+            transition: all 0.3s ease-out;
+            -webkit-transition:all 0.3s ease-out;
+        }
+        .btnList{
+            margin-top:15px; 
+            text-align: center;
+        }
+        #imgbox{
+            margin: 0 auto;
+            text-align: center;
+            margin-top:10px; 
+        }
+        #imgbox img{
+            border:0;
+        }
+        #table{
+            margin-top:10px; 
+        }
+    </style>
+<body>
+    <div id="imgbox"></div>
+    <!-- <canvas id="canvas" style="display: none"></canvas> -->
+    <div id="table">
+        <ul id="table_ul"></ul>
+    </div>
+
+    <div class="btnList">
+        <button id="start">重新开始</button>
+        
+        <button id="pre">上一关</button>
+
+        <button id="next">下一关</button>
+    </div>
+    
+
+    <script type="text/javascript" src="js/img.js"></script> 
+    <script type="text/javascript">
+        var i=new moveImg({
+            src:["images/01.jpg","images/02.jpg"],
+            numbs:3,
+            max:300,
+            imgbox:"#imgbox",
+            el:"#table",
+            pass:function(idx){
+                console.log(idx);
+                var _this=this;
+                setTimeout(function(){
+                    _this.next();
+                },1000)
+                
+            }
+        });
+        i.init();
+        var button=document.getElementById("start");
+        var next=document.getElementById("next");
+        var prev=document.getElementById("pre");
+        button.onclick=function(){
+            i.restart();
+        }
+        next.onclick=function(){
+            i.next();
+        }
+        prev.onclick=function(){
+            i.prev();
+        }
+    </script>
+</body>
+</html>

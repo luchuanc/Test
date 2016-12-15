@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>JS</title>
+    <meta name="keywords" content="拼图游戏"/>
+    <meta name="description" content="拼图游戏"/>
+    <script type="text/javascript" src="js/jquery-2.2.1.min.js"></script>
+    <script type="text/javascript" src="js/drag.js"></script>
+    <style type="text/css">
+        #div1 {  
+            width: 100px;  
+            height: 100px;  
+            background: green;  
+            position: absolute;  
+            left: 10px;  
+            top: 10px;  
+            overflow: hidden;  
+            outline: 0;  
+        }  
+        td{
+            cursor: move
+        }
+        #dragbox{
+            position:fixed;
+            z-index:2
+        }
+        #del{
+            width: 100px;
+            height:100px;
+            background-color: #ddd;
+            color: #fff;
+        }
+    </style>
+<body>
+    <img id="img" crossOrigin="anonymous" src="images/01.jpg">
+    <canvas id="canvas" style="display: none"></canvas>
+    <div id="table">
+        <table>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+    <button id="start">开始</button>
+    <script type="text/javascript">  
+        $(function(){
+            //img.crossOrigin = "anonymous";
+            var img=document.getElementById("img");
+            var $table=$("#table").find("tbody");
+            var random=[];
+            img.onload=function(){
+                var w=img.width;
+                var h=img.height;
+                var nwidth=w/4;
+                var nheight=h/4;
+                var arr=[],keys="";
+                for(var i=0;i<4;i++){
+                    arr[i]=[];
+                    for(var j=0;j<4;j++){
+                        var mycanvas = document.getElementById("canvas");
+                        mycanvas.width=nwidth;
+                        mycanvas.height=nheight;
+                        var ctx=mycanvas.getContext("2d");
+                        ctx.drawImage(img,i*nwidth,j*nheight,nwidth,nheight,0,0,nwidth,nheight);
+                        var image = mycanvas.toDataURL();
+                        arr[i].push(image);
+                    }
+                }
+                for(var m=0;m<arr.length;m++){
+                    var $tr=$("<tr></tr>");
+                    for(var n=0;n<arr[m].length;n++){
+                        $tr.append($('<td draggable="true" class="drag_"><img data-id='+m+'_'+n+' src='+arr[n][m]+' alt="" /></td>'));
+                        keys+=(m+'_'+n+'_');
+                    }
+                    $table.append($tr);
+                }
+                console.log(arr);
+                var $drag=$(".drag_");
+                var eleDrag=null;
+                for(var l=0;l<$drag.size();l++){
+                    var start={};
+                    $drag[l].onselectstart = function() {
+                        return false;
+                    };
+                    $drag[l].ondragstart = function(ev) {
+                        /*拖拽开始*/
+                        //拖拽效果
+                        console.log("start%o",this);
+                        console.dir(ev.target);
+                        ev.dataTransfer.setData("id",ev.target.getAttribute("data-id"));
+                        eleDrag = ev.target;
+                        return true;
+                    };
+                    $drag[l].ondrag=function(ev){
+                        /*console.log("move%o",ev);*/
+
+                        return true;
+
+                    };
+                    $drag[l].ondragend = function(ev) {
+                        /*拖拽结束*/
+
+                        console.log("end%o",ev);
+                        return false
+                    };
+
+
+                    $drag[l].ondragover = function(ev) {
+                        /*拖拽元素在目标元素头上移动的时候*/
+                        ev.preventDefault();
+                        return true;
+                    };
+
+                    $drag[l].ondragenter = function(ev) {
+                        /*拖拽元素进入目标元素头上的时候*/
+                        return true;
+                    };
+                    $drag[l].ondrop = function(ev) {
+                        /*拖拽元素进入目标元素头上，同时鼠标松开的时候*/
+                        var id=ev.dataTransfer.getData("id");
+                        var ids=id.split("_");
+                        var oldId=$(this).find("img").attr("data-id");
+                        var oldIds=oldId.split("_");
+                        $(eleDrag).attr("src",arr[oldIds[1]][oldIds[0]]).attr("data-id",oldId);
+                        $(this).find("img").attr("src",arr[ids[1]][ids[0]]).attr("data-id",id);
+
+                        var newKeys="";
+                        $table.find("img").each(function(){
+                            newKeys += $(this).attr("data-id") + '_';
+                        });
+                        if(newKeys==keys){
+                            alert("通关");
+                        }
+                        return false;
+                    };
+
+                    
+                }
+
+                
+            }
+        });
+
+        
+
+
+        
+   
+    </script>  
+</body>
+</html>
