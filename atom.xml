@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://lucc.ml/"/>
-  <updated>2016-12-15T13:59:58.542Z</updated>
+  <updated>2016-12-15T14:11:10.303Z</updated>
   <id>http://lucc.ml/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://lucc.ml/2016/12/13/%E5%86%99%E5%AE%8C%E6%8B%BC%E5%9B%BE%E6%B8%B8%E6%88%8F%E7%9A%84%E5%B0%8F%E7%BB%93/"/>
     <id>http://lucc.ml/2016/12/13/写完拼图游戏的小结/</id>
     <published>2016-12-13T15:18:02.000Z</published>
-    <updated>2016-12-15T13:59:58.542Z</updated>
+    <updated>2016-12-15T14:11:10.303Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>以前一直想写些自己感兴趣的东西玩，一直没动笔，还记得去年也做过小游戏方面的工作，当时基本上都是在网上找现成的改改就OK了，还记得以前想找个移动端的拼图找了好久都没找到，懊悔不已，最近研究了下，写个玩玩。</p>
@@ -102,7 +102,8 @@ if(flag){
     this.pass &amp;&amp; this.pass(this.startIndex);
 }
 </code></pre>
-<h6 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h6><p>写完后发现没啥应用场景，就当练练手，写着玩玩了。。</p>
+<h6 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h6><p>写完后发现没啥应用场景，就当练练手，写着玩玩了。。手机体验扫描下述二维码</p>
+<p><img src="http://lucc.ml/demos/move/images/cc.png" alt="image"></p>
 ]]></content>
     
     <summary type="html">
